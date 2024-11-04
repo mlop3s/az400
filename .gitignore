@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/WebService/.vs/ProjectEvaluation/webservice.metadata.v9.bin
+/WebService/.vs/ProjectEvaluation/webservice.projects.v9.bin
+/WebService/.vs/ProjectEvaluation/webservice.strings.v9.bin
+/WebService/.vs/WebService/CopilotIndices/0.2.1657.32929/CodeChunks.db
+/WebService/.vs/WebService/CopilotIndices/0.2.1657.32929/CodeChunks.db-shm
+/WebService/.vs/WebService/CopilotIndices/0.2.1657.32929/CodeChunks.db-wal
+/WebService/.vs/WebService/CopilotIndices/0.2.1657.32929/SemanticSymbols.db-shm
+/WebService/.vs/WebService/CopilotIndices/0.2.1657.32929/SemanticSymbols.db-wal
+/WebService/obj/Debug/net8.0/WebService.AssemblyInfo.cs
+/WebService/obj/Debug/net8.0/WebService.AssemblyInfoInputs.cache
+/WebService/.vs/WebService/DesignTimeBuild/.dtbcache.v2
+/WebService/.vs/WebService/FileContentIndex/295bd967-b560-40cd-9d48-37f8987734f0.vsidx
+/WebService/.vs/WebService/FileContentIndex/37d30e9d-0882-4101-ac46-588e9bb08779.vsidx
+/WebService/.vs/WebService/FileContentIndex/cd8de928-fc59-4726-97f1-f728090619e1.vsidx
+/WebService/.vs/WebService/v17/.futdcache.v2
+/WebService/.vs/WebService/v17/.suo
