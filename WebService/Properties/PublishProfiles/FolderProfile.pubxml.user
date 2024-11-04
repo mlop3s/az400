@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\Sourcen\github\az400\WebService\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2024-11-04T22:45:03.9154951Z||;False|2024-11-04T23:43:30.4950720+01:00||;False|2024-11-04T23:42:46.6921832+01:00||;False|2024-11-04T23:41:55.3972440+01:00||;False|2024-11-04T23:41:02.4435294+01:00||;True|2024-11-04T23:39:25.5026796+01:00||;</History>
+    <History>True|2024-11-04T23:10:51.0789855Z||;True|2024-11-05T00:06:19.4160259+01:00||;True|2024-11-04T23:51:03.8713620+01:00||;True|2024-11-04T23:50:10.5179221+01:00||;True|2024-11-04T23:45:03.9154951+01:00||;False|2024-11-04T23:43:30.4950720+01:00||;False|2024-11-04T23:42:46.6921832+01:00||;False|2024-11-04T23:41:55.3972440+01:00||;False|2024-11-04T23:41:02.4435294+01:00||;True|2024-11-04T23:39:25.5026796+01:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
