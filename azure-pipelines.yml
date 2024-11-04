@@ -30,10 +30,6 @@ steps:
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish'
 
 - script: |
-    dotnet tool install -g docfx
-  displayName: 'Install DocFX'
-
-- script: |
     docfx WebService/docfx.json
   displayName: 'Generate Documentation'
   env:
