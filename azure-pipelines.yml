@@ -23,23 +23,23 @@ steps:
     dotnet test WebService/WebService.sln --configuration $(buildConfiguration) --no-build --verbosity normal
   displayName: 'Run Tests'
 
-- task: CopyFiles@2
+- task: DotNetCoreCLI@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/WebService/bin/Release/net8.0/'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    command: 'publish'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish'
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/publish'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/build_output.zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/myapp.zip'
     replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/build_output.zip'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/myapp.zip'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
@@ -47,6 +47,6 @@ steps:
   inputs:
     azureSubscription: $(azureSubscription)
     appName: $(appName)
-    package: '$(Build.ArtifactStagingDirectory)/build_output.zip'
+    package: '$(Build.ArtifactStagingDirectory)/myapp.zip'
     resourceGroupName: $(resourceGroupName)
     appType: 'webAppLinux'
