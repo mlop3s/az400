@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": "61111058-5a97-4680-b52e-9ab2dcc700f7"
+        },
+        "resourceGroupName": {
+            "value": "az400"
+        },
+        "name": {
+            "value": "lonwebapp"
+        },
+        "location": {
+            "value": "Germany West Central"
+        },
+        "hostingPlanName": {
+            "value": "ASP-az400-8e41"
+        },
+        "serverFarmResourceGroup": {
+            "value": "az400"
+        },
+        "alwaysOn": {
+            "value": false
+        },
+        "ftpsState": {
+            "value": "FtpsOnly"
+        },
+        "sku": {
+            "value": "Free"
+        },
+        "skuCode": {
+            "value": "F1"
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "workerSizeId": {
+            "value": "0"
+        },
+        "linuxFxVersion": {
+            "value": "DOTNETCORE|8.0"
+        }
+    }
+}
