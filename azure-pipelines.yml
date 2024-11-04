@@ -34,7 +34,7 @@ steps:
   displayName: 'Install DocFX'
 
 - script: |
-    docfx docfx.json
+    docfx WebService/docfx.json
   displayName: 'Generate Documentation'
   env:
     PATH: $(PATH):$(HOME)/.dotnet/tools
