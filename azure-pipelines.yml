@@ -20,20 +20,31 @@ jobs:
    maxParallel: 1
    
   steps:
-  - task: NuGetToolInstaller@1
+trigger:
+- main  # Adjust this to your default branch
 
-  - task: NuGetCommand@2
-    inputs:
-      restoreSolution: '$(solution)'
+pool:
+  vmImage: 'ubuntu-latest'
 
-  - task: VSBuild@1
-    inputs:
-      solution: '$(solution)'
-      msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-      platform: '$(buildPlatform)'
-      configuration: '$(buildConfiguration)'
+variables:
+  buildConfiguration: 'Release'
 
-  - task: VSTest@2
-    inputs:
-      platform: '$(buildPlatform)'
-      configuration: '$(buildConfiguration)'
+steps:
+- script: |
+    dotnet restore WebService/WebService.sln
+  displayName: 'Restore NuGet Packages'
+
+- script: |
+    dotnet build WebService/WebService.sln --configuration $(buildConfiguration)
+  displayName: 'Build Solution'
+
+- script: |
+    dotnet test WebService/WebService.sln --configuration $(buildConfiguration) --no-build --verbosity normal
+  displayName: 'Run Tests'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
