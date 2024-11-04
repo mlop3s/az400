@@ -1,35 +1,19 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
-trigger:
-- master
-
-pool:
-  name: 'Default'
-
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
-jobs:
-- job: Build
-  strategy:
-   maxParallel: 1
-   
-  steps:
 trigger:
 - main  # Adjust this to your default branch
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'Default'
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'  # Use the latest version of .NET Core 8.0 SDK
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
 - script: |
     dotnet restore WebService/WebService.sln
   displayName: 'Restore NuGet Packages'
@@ -47,4 +31,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-
