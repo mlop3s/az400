@@ -29,6 +29,16 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish'
 
+- script: |
+    dotnet tool install -g docfx
+  displayName: 'Install DocFX'
+
+- script: |
+    docfx docfx.json
+  displayName: 'Generate Documentation'
+  env:
+    PATH: $(PATH):$(HOME)/.dotnet/tools
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/publish/WebService.zip'
