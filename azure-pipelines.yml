@@ -29,17 +29,9 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish'
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/publish'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/myapp.zip'
-    replaceExistingArchive: true
-
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/myapp.zip'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/publish/WebService.zip'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
@@ -47,6 +39,6 @@ steps:
   inputs:
     azureSubscription: $(azureSubscription)
     appName: $(appName)
-    package: '$(Build.ArtifactStagingDirectory)/myapp.zip'
+    package: '$(Build.ArtifactStagingDirectory)/publish/WebService.zip'
     resourceGroupName: $(resourceGroupName)
     appType: 'webAppLinux'
