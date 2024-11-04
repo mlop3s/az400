@@ -8,12 +8,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '8.0.x'  # Use the latest version of .NET Core 8.0 SDK
-    installationPath: $(Agent.ToolsDirectory)/dotnet
-
 - script: |
     dotnet restore WebService/WebService.sln
   displayName: 'Restore NuGet Packages'
