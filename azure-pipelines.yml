@@ -6,6 +6,9 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  azureSubscription:
+  appName: 'lonwebapp'
+  resourceGroupName: 'az400'
 
 steps:
 - script: |
@@ -25,3 +28,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: $(appName)
+    package: $(Build.ArtifactStagingDirectory)
+    resourceGroupName: $(resourceGroupName)
+    appType: 'webAppLinux'
