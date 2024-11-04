@@ -1,0 +1,13 @@
+### YamlMime:TableOfContent
+items:
+- uid: WebService
+  name: WebService
+  items:
+  - uid: WebService.WeatherForecast
+    name: WeatherForecast
+- uid: WebService.Controllers
+  name: WebService.Controllers
+  items:
+  - uid: WebService.Controllers.WeatherForecastController
+    name: WeatherForecastController
+memberLayout: SamePage

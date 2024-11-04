@@ -1,0 +1,12 @@
+{
+  "WebService": "WebService.yml",
+  "WebService.Controllers": "WebService.Controllers.yml",
+  "WebService.Controllers.WeatherForecastController": "WebService.Controllers.WeatherForecastController.yml",
+  "WebService.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{WebService.Controllers.WeatherForecastController})": "WebService.Controllers.WeatherForecastController.yml",
+  "WebService.Controllers.WeatherForecastController.Get": "WebService.Controllers.WeatherForecastController.yml",
+  "WebService.WeatherForecast": "WebService.WeatherForecast.yml",
+  "WebService.WeatherForecast.Date": "WebService.WeatherForecast.yml",
+  "WebService.WeatherForecast.Summary": "WebService.WeatherForecast.yml",
+  "WebService.WeatherForecast.TemperatureC": "WebService.WeatherForecast.yml",
+  "WebService.WeatherForecast.TemperatureF": "WebService.WeatherForecast.yml"
+}

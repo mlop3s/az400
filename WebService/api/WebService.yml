@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: WebService
+  commentId: N:WebService
+  id: WebService
+  children:
+  - WebService.WeatherForecast
+  langs:
+  - csharp
+  - vb
+  name: WebService
+  nameWithType: WebService
+  fullName: WebService
+  type: Namespace
+  assemblies:
+  - WebService
+references:
+- uid: WebService.WeatherForecast
+  commentId: T:WebService.WeatherForecast
+  href: WebService.WeatherForecast.html
+  name: WeatherForecast
+  nameWithType: WeatherForecast
+  fullName: WebService.WeatherForecast
