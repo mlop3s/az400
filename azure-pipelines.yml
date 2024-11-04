@@ -1,0 +1,44 @@
+trigger:
+- main  # Adjust this to your default branch
+
+pool:
+  name: 'Default'
+
+variables:
+  buildConfiguration: 'Release'
+  azureSubscription: 'Visual Studio Enterprise Subscription – MPN(61111058-5a97-4680-b52e-9ab2dcc700f7)'
+  appName: 'lonwebapp'
+  resourceGroupName: 'az400'
+
+steps:
+- script: |
+    dotnet restore WebService/WebService.sln
+  displayName: 'Restore NuGet Packages'
+
+- script: |
+    dotnet build WebService/WebService.sln --configuration $(buildConfiguration)
+  displayName: 'Build Solution'
+
+- script: |
+    dotnet test WebService/WebService.sln --configuration $(buildConfiguration) --no-build --verbosity normal
+  displayName: 'Run Tests'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/publish/WebService.zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appName: $(appName)
+    package: '$(Build.ArtifactStagingDirectory)/publish/WebService.zip'
+    resourceGroupName: $(resourceGroupName)
+    appType: 'webAppLinux'
