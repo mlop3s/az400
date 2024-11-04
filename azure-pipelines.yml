@@ -6,7 +6,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  azureSubscription:
+  azureSubscription: 'Visual Studio Enterprise Subscription – MPN(61111058-5a97-4680-b52e-9ab2dcc700f7)'
   appName: 'lonwebapp'
   resourceGroupName: 'az400'
 
