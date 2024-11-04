@@ -33,13 +33,13 @@
     "output": "_site",
     "template": [
       "default",
-      "modern"
+      "statictoc"
     ],
     "globalMetadata": {
       "_appName": "Webservice",
       "_appTitle": "Webservice",
       "_enableSearch": true,
-      "pdf": true
+      "pdf": false
     }
   }
 }
