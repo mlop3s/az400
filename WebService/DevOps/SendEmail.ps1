@@ -4,12 +4,13 @@ $Subject = "Webservice Docs"
 $Body = "
 Your webservice has been deployed
 "
+$pathToFile="$env:BUILD_ARTIFACTSTAGINGDIRECTORY/docs.zip"
 
 $SMTPServer = "exchange.nexus-ag.de" 
 $SMTPMessage = New-Object System.Net.Mail.MailMessage($EmailFrom,$EmailTo,$Subject,$Body)
-$attachment = New-Object System.Net.Mail.Attachment($env:FilenameAndPath)
+$attachment = New-Object System.Net.Mail.Attachment($pathToFile)
 $SMTPMessage.Attachments.Add($attachment)
 $SMTPClient = New-Object Net.Mail.SmtpClient($SmtpServer, 25) 
-$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("DevOps.Medication@nexus-ag.de", $env:EmailPassword)
+$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("DevOps.Medication@nexus-ag.de", $pathToFile)
 Write-Output $Body 
 $SMTPClient.Send($SMTPMessage)
