@@ -4,7 +4,7 @@ $Subject = "Webservice Docs"
 $Body = "
 Your webservice has been deployed
 "
-$pathToFile="$env:BUILD_ARTIFACTSTAGINGDIRECTORY/docs.zip"
+$pathToFile=$env:zipFilePath
 
 Write-Output $pathToFile
 
