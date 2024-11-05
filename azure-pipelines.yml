@@ -79,5 +79,6 @@ steps:
   inputs:
     targetType: 'filePath'
     filePath: '$(Build.SourcesDirectory)/WebService/DevOps/SendEmail.ps1'
+    arguments: '-buildId $(Build.BuildId)'
     failOnStderr: false
   displayName: 'Send Email with Attachment'
