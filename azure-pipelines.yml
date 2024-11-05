@@ -36,7 +36,7 @@ steps:
     PATH: $(PATH):$(HOME)/.dotnet/tools
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '_site'
+    rootFolderOrFile: 'WebService/_site'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/docs.zip'
