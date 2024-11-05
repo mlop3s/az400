@@ -9,6 +9,11 @@ variables:
   azureSubscription: 'Visual Studio Enterprise Subscription – MPN(61111058-5a97-4680-b52e-9ab2dcc700f7)'
   appName: 'lonwebapp'
   resourceGroupName: 'az400'
+  zipFileName: 'docs_$(Build.BuildId).zip'
+  zipFilePath: '$(Build.ArtifactStagingDirectory)/$(zipFileName)'
+  storageAccountName: 'lomexceltrigger '
+  containerName: 'documentation'
+  blobName: '$(zipFileName)'  
 
 steps:
 - script: |
@@ -39,7 +44,7 @@ steps:
     rootFolderOrFile: 'WebService/_site'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/docs.zip'
+    archiveFile: $(zipFilePath)
     replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
@@ -56,6 +61,16 @@ steps:
     resourceGroupName: $(resourceGroupName)
     appType: 'webAppLinux'
 
-- task: PowerShell@2
+- task: AzureCLI@2
   inputs:
-    filePath: 'WebService/DevOps/SendEmail.ps1'
+    azureSubscription: $(azureSubscription)
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az storage blob upload \
+        --account-name $(storageAccountName) \
+        --container-name $(containerName) \
+        --name $(blobName) \
+        --file $(zipFilePath) \
+        --auth-mode key
+  displayName: 'Upload File to Azure Blob Storage'
