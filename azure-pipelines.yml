@@ -58,4 +58,4 @@ steps:
 
 - task: PowerShell@2
   inputs:
-    filePath: 'DevOps/SendEmail.ps1'
+    filePath: 'WebService/DevOps/SendEmail.ps1'
