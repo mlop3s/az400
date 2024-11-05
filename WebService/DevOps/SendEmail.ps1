@@ -1,5 +1,5 @@
 ﻿$EmailTo = 'Marco.Lopes@nexus-ag.de'
-$EmailFrom = "VS-TFSSETUP@nexus-ag.de"
+$EmailFrom = "DevOps.Medication@nexus-ag.de"
 $Subject = "Webservice Docs" 
 $filenameAndPath = "_site/toc.pdf"
 $Body = "
@@ -11,6 +11,6 @@ $SMTPMessage = New-Object System.Net.Mail.MailMessage($EmailFrom,$EmailTo,$Subje
 $attachment = New-Object System.Net.Mail.Attachment($filenameAndPath)
 $SMTPMessage.Attachments.Add($attachment)
 $SMTPClient = New-Object Net.Mail.SmtpClient($SmtpServer, 25) 
-$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("VS-TFSSETUP@nexus-ag.de", $env:EmailPassword)
+$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("DevOps.Medication@nexus-ag.de", $env:EmailPassword)
 Write-Output $Body 
 $SMTPClient.Send($SMTPMessage)
