@@ -6,6 +6,8 @@ Your webservice has been deployed
 "
 $pathToFile="$env:BUILD_ARTIFACTSTAGINGDIRECTORY/docs.zip"
 
+Write-Output $pathToFile
+
 $SMTPServer = "exchange.nexus-ag.de" 
 $SMTPMessage = New-Object System.Net.Mail.MailMessage($EmailFrom,$EmailTo,$Subject,$Body)
 $attachment = New-Object System.Net.Mail.Attachment($pathToFile)
