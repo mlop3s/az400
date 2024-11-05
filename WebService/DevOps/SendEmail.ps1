@@ -17,6 +17,6 @@ $SMTPMessage = New-Object System.Net.Mail.MailMessage($EmailFrom,$EmailTo,$Subje
 $attachment = New-Object System.Net.Mail.Attachment($pathToFile)
 $SMTPMessage.Attachments.Add($attachment)
 $SMTPClient = New-Object Net.Mail.SmtpClient($SmtpServer, 25) 
-$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("DevOps.Medication@nexus-ag.de", $pathToFile)
+$SMTPClient.Credentials = New-Object System.Net.NetworkCredential("DevOps.Medication@nexus-ag.de", $env:EmailPassword)
 Write-Output $Body 
 $SMTPClient.Send($SMTPMessage)
