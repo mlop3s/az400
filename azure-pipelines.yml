@@ -74,3 +74,10 @@ steps:
         --file $(zipFilePath) \
         --auth-mode key
   displayName: 'Upload File to Azure Blob Storage'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'filePath'
+    filePath: '$(Build.SourcesDirectory)/DevOps/SendEmail.ps1'
+    failOnStderr: false
+  displayName: 'Send Email with Attachment'
