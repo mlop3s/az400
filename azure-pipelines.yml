@@ -75,6 +75,13 @@ steps:
         --auth-mode key
   displayName: 'Upload File to Azure Blob Storage'
 
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise Subscription – MPN(2)(61111058-5a97-4680-b52e-9ab2dcc700f7)'
+    KeyVaultName: 'az400vaultexample'
+    SecretsFilter: '*'
+    RunAsPreJob: true
+
 - task: PowerShell@2
   inputs:
     targetType: 'filePath'
